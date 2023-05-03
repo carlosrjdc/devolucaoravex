@@ -31,6 +31,10 @@ const materialDirectories = {
       },
     });
   },
+
+  cadastrarItem: async (id, descricao, codean, coddum) => {
+    return await material.create({ id: id, id_sku: id, descricao: descricao, codean: codean, coddum: coddum });
+  },
 };
 
 module.exports = materialDirectories;
