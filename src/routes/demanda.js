@@ -6,10 +6,10 @@ const router = express.Router();
 //SITE
 
 //BUSCA
-router.get("/buscarinfodemanda/:id", DemandaController.buscarDemandaPorId);
-router.get("/infodeumaviagem/:viagem", DemandaController.buscarInfoDeUmaViagemRavex);
-router.get("/buscardemandaspordata/:data", DemandaController.buscarDemandaPorData);
-router.get("/buscarstatusagrupado/:data", DemandaController.buscarDemandaPorStatusData);
+router.get("/buscarinfodemanda/:id", checkLogin, DemandaController.buscarDemandaPorId);
+router.get("/infodeumaviagem/:viagem", checkLogin, DemandaController.buscarInfoDeUmaViagemRavex);
+router.get("/buscardemandaspordata/:data", checkLogin, DemandaController.buscarDemandaPorData);
+router.get("/buscarstatusagrupado/:data", checkLogin, DemandaController.buscarDemandaPorStatusData);
 
 //CRIAR
 router.post("/cadastrardemanda", checkLogin, DemandaController.criarNovaDemanda);
@@ -21,7 +21,7 @@ router.put("/reabrirdemandaparaconferencia/:id", checkLogin, DemandaController.r
 
 //APP
 //BUSCA
-router.get("/buscardemandasemabertoporid/:id", DemandaController.buscarDemandaEmAbertoPorConferente);
+router.get("/buscardemandasemabertoporid/:id", checkLogin, DemandaController.buscarDemandaEmAbertoPorConferente);
 
 //UPDATE
 router.put("/iniciardemanda/:id", checkLogin, DemandaController.iniciarConferenciaApp);
