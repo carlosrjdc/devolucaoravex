@@ -1,8 +1,14 @@
 const express = require("express");
 const PlacaController = require("../../controllers/PlacaController");
 const checkLogin = require("../directories/authDirectories.js");
+const multer = require("multer");
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
 const router = express.Router();
+//UPLOAD PLACA
+router.post("/uploadplacaemmassa", upload.single("arquivo"), PlacaController.InputEmMassaSku);
 
 //CREATE
 router.post("/transporte/cadastrarplaca", checkLogin, PlacaController.cadastrarNovaPlaca);

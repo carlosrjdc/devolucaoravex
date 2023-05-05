@@ -27,7 +27,15 @@ class UserController {
     const { usuario, nome, senha, funcao } = req.body;
 
     try {
-      const newUser = await userDirectories.createUser(usuario, nome, senha, funcao);
+      const salt = await bcrypt.genSalt(12);
+      const senhaHash = await bcrypt.hash(senha, salt);
+      const User = await db.User.create({
+        usuario,
+        nome,
+        senha: senhaHash,
+        funcao,
+      });
+      res.status(200).json(User);
       res.status(200).json(newUser);
     } catch (erro) {
       return res.status(500).json(erro.message);

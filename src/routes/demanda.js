@@ -25,6 +25,6 @@ router.get("/buscardemandasemabertoporid/:id", checkLogin, DemandaController.bus
 
 //UPDATE
 router.put("/iniciardemanda/:id", checkLogin, DemandaController.iniciarConferenciaApp);
-router.put("/finalizarconferenciafisica/:id", checkLogin, DemandaController.finalizarConferenciaApp);
+router.put("/finalizarconferenciafisica/:id", DemandaController.finalizarConferenciaApp);
 
 module.exports = router;
