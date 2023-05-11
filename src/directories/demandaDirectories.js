@@ -30,7 +30,7 @@ const demandaDirectories = {
   },
 
   deleteDemandaById: async (id) => {
-    return conferencia.destroy({
+    return demanda.destroy({
       where: {
         id: id,
       },
