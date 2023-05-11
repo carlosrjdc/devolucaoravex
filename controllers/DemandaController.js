@@ -12,6 +12,16 @@ class DemandaController {
     }
   };
 
+  static deletarDemanda = async (req, res) => {
+    const { id } = req.params;
+    try {
+      const notas = await demandaDirectories.deleteDemandaById(id)
+      res.status(200).json(notas);
+    } catch (erro) {
+      return res.status(500).json(erro.message);
+    }
+  };
+
   static buscarDemandaPorData = async (req, res) => {
     try {
       const demanda = await demandaDirectories.findDemandaByDate(req.params.data);

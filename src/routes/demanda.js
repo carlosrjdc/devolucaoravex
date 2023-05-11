@@ -19,6 +19,9 @@ router.post("/enviaremail/:id", checkLogin, DemandaController.enviarEmail);
 router.put("/finalizardemandaemail/:id", checkLogin, DemandaController.finalizarDemandaParteAdm);
 router.put("/reabrirdemandaparaconferencia/:id", checkLogin, DemandaController.reabrirDemandaParaConferencia);
 
+//DELETE
+router.delete("/deletardemanda/:id", checkLogin, DemandaController.deletarDemanda)
+
 //APP
 //BUSCA
 router.get("/buscardemandasemabertoporid/:id", checkLogin, DemandaController.buscarDemandaEmAbertoPorConferente);

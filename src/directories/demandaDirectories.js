@@ -29,6 +29,13 @@ const demandaDirectories = {
     return RavexService.retornarDadosdeUmaViagem(viagem);
   },
 
+  deleteDemandaById: async (id) => {
+    return conferencia.destroy({
+      where: {
+        id: id,
+      },
+    });
+  },
   findDemandaByDate: async (data) => {
     return await demanda.findAll({
       where: {
